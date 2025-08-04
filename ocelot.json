@@ -49,7 +49,7 @@
         "TtlSeconds": 15
       }
     },
-    {//post: api/URLs
+    { //post: api/URLs
       "UpstreamPathTemplate": "/gateway/urls",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamPathTemplate": "/api/URLs",
@@ -72,7 +72,7 @@
         "TtlSeconds": 15
       }
     },
-    {//post: custom URLs
+    { //post: custom URLs
       "UpstreamPathTemplate": "/gateway/urls/custom",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamPathTemplate": "/api/URLs/custom",
@@ -95,7 +95,7 @@
         "TtlSeconds": 15
       }
     },
-    {//redirect
+    { //redirect
       "UpstreamPathTemplate": "/gateway/urls/redirect/{shortCode}",
       "UpstreamHttpMethod": [ "Get" ],
       "DownstreamPathTemplate": "/api/URLs/redirect/{shortCode}",
@@ -118,7 +118,7 @@
         "TtlSeconds": 15
       }
     },
-    {//delete: api/URLs/{id}
+    { //delete: api/URLs/{id}
       "UpstreamPathTemplate": "/gateway/urls/{id}",
       "UpstreamHttpMethod": [ "Delete" ],
       "DownstreamPathTemplate": "/api/URLs/{id}",
@@ -166,8 +166,8 @@
     },
     { //Post: register 
       "UpstreamPathTemplate": "/gateway/register",
-      "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/register",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/api/Auth/register",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -191,7 +191,7 @@
       //Post: login
       "UpstreamPathTemplate": "/gateway/login",
       "UpstreamHttpMethod": [ "Post" ],
-      "DownstreamPathTemplate": "/api/login",
+      "DownstreamPathTemplate": "/api/Auth/login",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -209,12 +209,15 @@
       },
       "FileCacheOptions": {
         "TtlSeconds": 15
-      },
+      }
+    },
+   {
+  
       //logout
-      {
+      
         "UpstreamPathTemplate": "/gateway/logout",
         "UpstreamHttpMethod": [ "Post" ],
-        "DownstreamPathTemplate": "/api/logout",
+        "DownstreamPathTemplate": "/api/Auth/logout",
         "DownstreamScheme": "https",
         "DownstreamHostAndPorts": [
           {
@@ -234,10 +237,6 @@
           "TtlSeconds": 15
         }
       }
-    },
-    {
-      //frontend
-      //"DownstreamHostAndPorts": [3000]
-    }
+   
   ]
 }
